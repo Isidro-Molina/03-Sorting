@@ -20,17 +20,36 @@ function swap(arr) {
     return arr
 } */
 
-function bubbleSort(array = []) {
-    for (let i = 0; i < array.length; i++) {
-        for (let j = 0; j < array.length - 1; j++) {
-            if (array[j] > array[j+1]) {
-                swap(array, j, j+1)
-            }
-        }
-    }
-    return array
-}
+// function bubbleSort(array = []) {
+//     for (let i = 0; i < array.length; i++) {
+//         for (let j = 0; j < array.length - 1; j++) {
+//             if (array[j] > array[j+1]) {
+//                 swap(array, j, j+1)
+//             }
+//         }
+//     }
+//     return array
+// }
 
 function swap(arr,i, j) {
     [arr[i], arr[j]] = [arr[j], arr[i]]
+}
+
+// REFACTORIZACION, VIDEO REVIEW
+
+function bubbleSort(arr) {
+    // al ir disminuyendo, una vez que ciertos elementos ya esten ordenados, no va a recorrerlo de nuevo. ahorramos iteraciones
+    for (let j = arr.length; j >= 0; j--) {
+        let swapped = false
+        for (let i = 0; i < j - 1; i++) {
+            if (arr[i] > arr[i+1]) {
+                swap(arr, i, i + 1)
+                swapped = true
+            }
+        }
+        // va a salir del for, una vez que el arreglo ya este ordenado, sin tener que recorrerlo de nuevo
+        if (!swapped) break;
+    }
+    console.log(arr);
+    return arr
 }

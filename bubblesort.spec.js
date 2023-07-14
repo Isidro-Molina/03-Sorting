@@ -11,9 +11,11 @@ describe('Bubble Sort', function () {
         expect(bubbleSort([3,2,1])).toEqual([1,2,3])
     })
 
-    xit('cuantas veces fue invocado swap en bubbleSort', function () {
+    it('cuantas veces fue invocado swap en bubbleSort', function () {
         spyOn(window, 'swap').and.callThrough();
-        bubbleSort([5, 3, 1, 4, 7, 8, 9]);
-        expect(window.swap.calls.count()).toEqual(9);
+        bubbleSort([5, 3, 1, 4, 7, 9, 2, 8, 6]);
+        expect(window.swap.calls.count()).toEqual(13);
+        // bubbleSort([1,2,3,5,4]);
+        // expect(window.swap.calls.count()).toEqual(1);
     });
 });
