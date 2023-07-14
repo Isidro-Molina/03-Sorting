@@ -20,6 +20,11 @@ function split(wholeArray) {
             secondHalf.push(wholeArray[j]);
         }
     }
+
+    // REFACTORIZACION - VIDEO REVIEW
+    // const half = Math.ceil(wholeArray.length / 2)
+    // const firstHalf = wholeArray.slice(0, half)
+    // const secondHalf = wholeArray.slice(half)
     return [firstHalf, secondHalf];
 }
 
